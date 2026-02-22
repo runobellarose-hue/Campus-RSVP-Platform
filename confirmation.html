@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP Confirmation</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="confirmation.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="discover.html" class="nav-link">Discover</a>
+        <a href="myevents.html" class="nav-link active">My Events <span id="eventCount" class="badge">0</span></a>
+    </nav>
+
+    <div class="confirmation">
+
+        <h1 class="success-title">You’re Going!!!</h1>
+
+        <h3>Event Summary</h3>
+
+        <div class="summary-card">
+            <img id="eventImage" />
+            <div class="summary-content">
+                <h2 id="eventTitle"></h2>
+                <p id="eventDescription"></p>
+                <div class="meta">
+                    <span><i class="fa fa-calendar"></i> <span id="eventDate"></span></span>
+                    <span><i class="fa fa-clock"></i> <span id="eventTime"></span></span>
+                    <span><i class="fa fa-location-dot"></i> <span id="eventLocation"></span></span>
+                </div>
+
+            </div>
+        </div>
+
+        <p class="reminder">Reminder set for 1 hour before</p>
+        <button id="reminder-toggle" class="action-btn">Toggle Reminder</button>
+
+        <button class="action-btn" onclick="addToCalendar()">Add to Calendar</button>
+        <button class="action-btn" onclick="goToMyEvents()">View My Events</button>
+        <button class="action-btn" onclick="shareEvent()">Share Event</button>
+
+    </div>
+
+    <script src="confirmation.js"></script>
+</body>
+
+</html>

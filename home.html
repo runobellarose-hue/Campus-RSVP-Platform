@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Events – Home Feed</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <a href="home.html" class="nav-link active">Home</a>
+  <a href="discover.html" class="nav-link">Discover</a>
+  <a href="myevents.html" class="nav-link">
+    My Events
+    <span id="eventCount" class="badge">0</span>
+  </a>
+</nav>
+
+<!-- SEARCH -->
+<div class="search-container">
+  <i class="fa fa-search"></i>
+  <input type="text" id="searchInput" placeholder="Search events...">
+  <i class="fa fa-sliders filter-icon"></i>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="filter-btn active-filter" data-category="all">All</button>
+  <button class="filter-btn" data-category="academic">Academic</button>
+  <button class="filter-btn" data-category="social">Social</button>
+  <button class="filter-btn" data-category="sports">Sports</button>
+  <button class="filter-btn" data-category="club">Club</button>
+</div>
+
+<!-- EVENTS CONTAINER -->
+<div id="events-container" class="events-container">
+  <!-- Dynamically filled by JS -->
+</div>
+
+<!-- No results message -->
+<p id="no-results" style="display:none; text-align:center; color:#888; margin-top:2rem;">
+  No events found.
+</p>
+
+<script src="home.js"></script>
+</body>
+</html>

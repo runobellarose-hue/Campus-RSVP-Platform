@@ -1,0 +1,214 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 18px 0;
+  background: white;
+  font-weight: 600;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #888;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.nav-link.active {
+  color: black;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  bottom: -6px;
+  left: 0;
+}
+
+/* SEARCH */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  margin: 16px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.search-container input {
+  border: none;
+  flex: 1;
+  outline: none;
+  margin: 0 10px;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 16px 12px;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+  background: #eaeaea;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.active-filter {
+  background: black;
+  color: white;
+}
+
+/* CARDS */
+.events-container {
+  padding: 0 16px 30px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+}
+
+.event-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 14px;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.rsvp-btn {
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.rsvp-btn.rsvpd {
+  background: #ccc;
+  color: #333;
+}
+
+/* (Previous code + new) */
+.calendar {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Your original code + new calendar styles */
+.calendar {
+  background: #eaeaea;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.calendar-header select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.calendar-day {
+  padding: 0.5rem;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-day:hover {
+  background: #ccc;
+}
+
+.calendar-day.has-event {
+  background: #28a745;
+  color: white;
+}
+
+.calendar-day.empty {
+  visibility: hidden;
+}
+
+/* Rest of your original CSS */

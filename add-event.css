@@ -1,0 +1,44 @@
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #f7f7f7;
+}
+
+h1 {
+  text-align: center;
+  color: #060606;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.btn-primary {
+  background: #060606;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #202020;
+}

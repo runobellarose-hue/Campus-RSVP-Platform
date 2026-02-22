@@ -1,0 +1,124 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 18px 0;
+  background: white;
+  font-weight: 600;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #888;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.nav-link.active {
+  color: black;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: black;
+  bottom: -6px;
+  left: 0;
+}
+
+/* Badge */
+.badge {
+  background: black;
+  color: white;
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+/* Card */
+.event-card {
+  display: flex;
+  background: white;
+  border-radius: 16px;
+  padding: 12px;
+  gap: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.event-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.event-content h3 {
+  margin: 0 0 6px 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.meta i {
+  margin-right: 6px;
+  color: black;
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  margin-top: 60px;
+  color: #777;
+}
+
+.empty i {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.event-card {
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-remove {
+  background: black;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}

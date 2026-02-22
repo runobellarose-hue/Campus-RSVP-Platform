@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Events – Discover</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <a href="home.html" class="nav-link">Home</a>
+    <a href="discover.html" class="nav-link active">Discover</a>
+    <a href="myevents.html" class="nav-link">
+      My Events
+      <span id="eventCount" class="badge">0</span>
+    </a>
+  </nav>
+
+  <!-- SEARCH -->
+  <div class="search-container">
+    <i class="fa fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search events...">
+    <i class="fa fa-sliders filter-icon"></i>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active-filter" data-category="all">All</button>
+    <button class="filter-btn" data-category="academic">Academic</button>
+    <button class="filter-btn" data-category="social">Social</button>
+    <button class="filter-btn" data-category="sports">Sports</button>
+    <button class="filter-btn" data-category="club">Club</button>
+  </div>
+
+  <!-- EVENT CALENDAR -->
+  <h2>Event Calendar</h2>
+  <div class="calendar">
+    <div class="calendar-header">
+      <button id="prev-month"><i class="fa fa-arrow-left"></i></button>
+      <select id="month-select">
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+      </select>
+      <select id="year-select">
+        <option value="2025">2025</option>
+        <option value="2026" selected>2026</option>
+        <option value="2027">2027</option>
+      </select>
+      <button id="next-month"><i class="fa fa-arrow-right"></i></button>
+    </div>
+
+    <div class="calendar-days">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+
+    <div id="calendar-grid" class="calendar-grid"></div>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <h2>Upcoming Events</h2>
+  <div id="upcoming-list" class="events-container">
+    <!-- Events loaded by JS -->
+  </div>
+
+  <!-- No results message for search -->
+  <p id="no-results" style="display:none; text-align:center; color:#888; margin-top:2rem;">
+    No events found.
+  </p>
+
+  <script src="discover.js"></script>
+</body>
+</html>
