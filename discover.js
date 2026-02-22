@@ -63,13 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
-  db.collection("events").get().then(snapshot => {
-  let events = [];
-  snapshot.forEach(doc => {
-    events.push({ id: doc.id, ...doc.data() });
-  });
-  renderEvents(events); // your render function
-});
+  // Load user-added events
+  let userEvents = JSON.parse(localStorage.getItem("events")) || [];
 
   // Merge: pre + user (no duplicates)
   const allEvents = [
@@ -264,3 +259,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
