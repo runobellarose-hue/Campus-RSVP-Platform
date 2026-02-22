@@ -68,7 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // ──────────────────────────────────────────────
   // LOAD USER-ADDED EVENTS & MERGE
   // ──────────────────────────────────────────────
-  let userEvents = JSON.parse(localStorage.getItem("events")) || [];
+  db.collection("events").get().then(snapshot => {
+  let events = [];
+  snapshot.forEach(doc => {
+    events.push({ id: doc.id, ...doc.data() });
+  });
+  renderEvents(events); // your render function
+});
 
   // Merge: pre + user (no duplicate IDs)
   const allEvents = [
@@ -180,4 +186,5 @@ document.addEventListener("DOMContentLoaded", () => {
       renderEvents(filtered);
     });
   });
+
 });
