@@ -13,15 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("eventTitle").innerText = "No event selected";
   }
 
-  // Reminder toggle (simulation)
-  const reminderToggle = document.getElementById("reminder-toggle");
-  if (reminderToggle) {
-    reminderToggle.addEventListener("click", () => {
-      alert("Reminder toggled! (Simulation – would enable/disable push/email reminder)");
-      reminderToggle.textContent = reminderToggle.textContent.includes("On") ? "Reminder Off" : "Reminder On";
-    });
-  }
-
   // Add to Google Calendar – opens pre-filled event in user's Google Calendar
   window.addToCalendar = () => {
     if (!eventData) {
@@ -57,11 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "myevents.html";
   };
 
-  // Share Event (placeholder)
-  window.shareEvent = () => {
-    alert("Share feature coming soon!");
-  };
-
   // Update badge (My Events count)
   const badge = document.getElementById("eventCount");
   if (badge) {
@@ -69,3 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
     badge.innerText = myEvents.length;
   }
 });
+
