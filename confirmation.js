@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const storageKey = "myEvents";
+  // Load the selected event from localStorage
   const eventData = JSON.parse(localStorage.getItem("selectedEvent"));
 
   if (eventData) {
@@ -9,31 +9,63 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("eventTime").innerText = eventData.time;
     document.getElementById("eventLocation").innerText = eventData.location;
     document.getElementById("eventImage").src = eventData.image;
+  } else {
+    document.getElementById("eventTitle").innerText = "No event selected";
   }
 
-  // Reminder toggle
+  // Reminder toggle (simulation)
   const reminderToggle = document.getElementById("reminder-toggle");
-  reminderToggle.addEventListener("click", () => {
-    alert("Reminder toggled! (Simulation – on/off for notifications).");
-  });
+  if (reminderToggle) {
+    reminderToggle.addEventListener("click", () => {
+      alert("Reminder toggled! (Simulation – would enable/disable push/email reminder)");
+      reminderToggle.textContent = reminderToggle.textContent.includes("On") ? "Reminder Off" : "Reminder On";
+    });
+  }
 
-  // Add to Calendar (simulation)
+  // Add to Google Calendar – opens pre-filled event in user's Google Calendar
   window.addToCalendar = () => {
-    alert("Added to Calendar! (Simulation – would sync to device calendar).");
+    if (!eventData) {
+      alert("No event data available.");
+      return;
+    }
+
+    // Format date/time for Google Calendar URL
+    // Google expects YYYYMMDDT HHMMSSZ (UTC) or YYYYMMDDTHHMMSS (local)
+    // For simplicity, we use local time format (no timezone conversion here)
+    const startDateTime = `${eventData.date.replace(/-/g, '')}T${eventData.time.replace(':', '')}00`;
+    const endDateTime = `${eventData.date.replace(/-/g, '')}T${eventData.time.replace(':', '')}00`; // same day, same time (duration not specified)
+
+    const title = encodeURIComponent(eventData.title);
+    const details = encodeURIComponent(eventData.description);
+    const location = encodeURIComponent(eventData.location);
+
+    const googleCalendarUrl = 
+      `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+      `&text=${title}` +
+      `&details=${details}` +
+      `&location=${location}` +
+      `&dates=${startDateTime}/${endDateTime}`;
+
+    // Open in new tab
+    window.open(googleCalendarUrl, '_blank');
+
+    alert("Opening Google Calendar – event pre-filled. You can set a reminder there.");
   };
 
-  // Go to My Events
+  // View My Events
   window.goToMyEvents = () => {
     window.location.href = "myevents.html";
   };
 
-  // Share Event
+  // Share Event (placeholder)
   window.shareEvent = () => {
     alert("Share feature coming soon!");
   };
 
-  // Update badge
+  // Update badge (My Events count)
   const badge = document.getElementById("eventCount");
-  const savedEvents = JSON.parse(localStorage.getItem(storageKey)) || [];
-  badge.innerText = savedEvents.length;
+  if (badge) {
+    const myEvents = JSON.parse(localStorage.getItem("myEvents")) || [];
+    badge.innerText = myEvents.length;
+  }
 });
