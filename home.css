@@ -211,4 +211,85 @@ body {
   visibility: hidden;
 }
 
+
 /* Rest of your original CSS */
+/* ====================== DESKTOP VIEW ====================== */
+@media (min-width: 768px) {
+  
+  .container, .events-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Make event cards display in 2 or 3 columns */
+  .events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.8rem;
+  }
+
+  .event-card {
+    margin-bottom: 0;
+  }
+
+  /* Larger images and text for better desktop feel */
+  .event-card img {
+    height: 200px;
+  }
+
+  .event-content {
+    padding: 1.5rem;
+  }
+
+  .event-title {
+    font-size: 1.4rem;
+  }
+
+  /* Navigation becomes top bar on desktop */
+  nav {
+    position: static;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Search bar wider */
+  .search-container {
+    max-width: 600px;
+    margin: 2rem auto;
+  }
+
+  /* Calendar looks better on wide screens */
+  .calendar {
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.8rem;
+  }
+
+  .calendar-day {
+    padding: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  /* Bigger buttons */
+  .btn-primary, .rsvp-btn, .action-btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.15rem;
+  }
+
+  /* Improve confirmation page layout */
+  .summary-card {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .summary-card img {
+    width: 180px;
+    height: 180px;
+  }
+}
